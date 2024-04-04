@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week1</title>
+    <link rel="stylesheet" type="text/css" href="week1.css"/>
+</head>
+<body>
+    <div style="display: flex;min-width:1200px;">
+        <div style="font-size: 20px;">my website</div>
+
+        
+        <div class="item" id="menu">
+            <div class="close-icon" onclick="closeMenu();">x</div>
+            <div class="item-text">item 1</div>
+            <div class="item-text">item 2</div>
+            <div class="item-text">item 3</div>
+            <div class="item-text">item 4</div>
+           
+        </div>
+       
+        <div class="mobile"  onclick="change();">
+            <img src="menu.png"/>
+        </div>
+    </div >
+    <script>
+        function change(){
+            let openelem = document.querySelector("#menu");
+            
+            menu.style.display='block'
+        }
+        function closeMenu(){
+            let closeelem = document.querySelector("#menu");
+            menu.style.display = 'none'
+
+        }
+    </script>
+
+    
+    <div class="welcome" >Welcome to MyHome</div>
+
+    <div class="smallbox">
+        <div class="small">
+            <img src="image.jpg" class="smallpicture"/>
+            <div class="promotion">promotion 1</div>
+        </div>
+        <div class="small">
+            <img src="image.jpg" class="smallpicture"/>
+            <div class="promotion">promotion 2</div>
+        </div>
+        <div class="small">
+            <img src="image.jpg" class="smallpicture"/>
+            <div class="promotion">promotion 3</div>
+        </div>
+    </div>
+
+    <!--big boxes 第一行-->
+    <div class="grid">
+      
+
+        <div class="contaniner">
+          <img src="image.jpg" class="bigpicture2"></img>
+          <span class="icon">⭐</span>
+          <div class="text">title 1</div>
+        </div>
+        
+        <div class="contaniner">
+           <img src="image.jpg" class="bigpicture2"></img>
+           <span class="icon">⭐</span>
+           <div class="text">title 2</div>
+        </div>
+        
+        <div class="contaniner">
+            <img src="image.jpg" class="bigpicture2"></img>
+            <span class="icon">⭐</span>
+            <div class="text">title 3</div>
+        </div>
+
+        <div class="contaniner">
+            <img src="image.jpg" class="bigpicture2"></img>
+            <span class="icon">⭐</span>
+            <div class="text">title 4</div>
+            
+
+        </div>
+        
+        <div class="contaniner">
+            <img src="image.jpg" class="bigpicture2"></img>
+            <span class="icon">⭐</span>
+            <div class="text">title 5</div>
+        </div>
+          
+
+    
+    <!--第二行-->
+      
+      
+        <div class="contaniner">
+          <img src="image.jpg" class="bigpicture2"></img>
+          <span class="icon">⭐</span>
+          <div class="text">title 6</div>
+        </div>
+        
+        <div class="contaniner">
+           <img src="image.jpg" class="bigpicture2"></img>
+           <span class="icon">⭐</span>
+           <div class="text">title 7</div>
+        </div>
+        
+        <div class="contaniner">
+            <img src="image.jpg" class="bigpicture2"></img>
+            <span class="icon">⭐</span>
+            <div class="text">title 8</div>
+        </div>
+
+        <div class="contaniner4">
+            <img src="image.jpg" class="bigpicture3"></img>
+            <span class="icon">⭐</span>
+            <div class="text">title 9</div>
+            
+
+        </div>
+        
+        <div class="contaniner5">
+            <img src="image.jpg" class="bigpicture4"></img>
+            <span class="icon">⭐</span>
+            <div class="text">title 10</div>
+        </div>
+      
+    </div>
+
+</body>
+</html>
