@@ -159,7 +159,9 @@ body{
         width: 100%;
         min-width:600px;
         max-width: 1200px;
+        display: flex;
     }
+    
 
     .small{
         width: 45%;
