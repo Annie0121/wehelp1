@@ -9,6 +9,14 @@
 .item-text {
     margin: 0 10px; 
 }
+
+.top{
+    display: flex;
+    min-width:1200px;
+}
+
+
+
 .mobile{
     display: none;
     justify-content: flex-end;
@@ -63,6 +71,9 @@ body{
     background-color: rgba(164, 161, 161, 0.467);
     height: 50px;
     width: 100%;
+    align-items: center;
+    display: flex;
+    padding-left: 10px;
 }
 
 
@@ -137,13 +148,19 @@ body{
     .smallbox{
         flex-wrap: wrap;
         justify-content: center;
-        min-width:90%;
+        min-width:600px;
+        max-width: 1200px;
         display: flex;
         grid-template-columns:1fr 1fr;
-        min-width: 90%;
+        width: 90%;
 
     }
-    
+    .top{
+        width: 100%;
+        min-width:600px;
+        max-width: 1200px;
+    }
+
     .small{
         width: 45%;
         flex: auto;
@@ -154,13 +171,17 @@ body{
         font-size: 20px;
     }
     .welcome{
-        flex: auto;
+        width: 100%;
+        min-width:600px;
+        max-width: 1200px;
         
     }
+    
     .grid{
         grid-template-columns:25% 25% 25% 25%;
         grid-auto-rows: 1fr 1fr 1fr;
         min-width: 90%;
+        width: 90%;
     }
 
     .bigpicture2{
