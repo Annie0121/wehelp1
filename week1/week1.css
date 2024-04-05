@@ -64,9 +64,36 @@ body{
     align-items: center;
     margin: 10px; 
 }
-
+.small2{
+    display: flex;
+    align-items: center;
+    margin: 10px; 
+}
+.small3{
+    display: flex;
+    align-items: center;
+    margin: 10px; 
+}
 
 .promotion{
+    font-size: 20px;
+    background-color: rgba(164, 161, 161, 0.467);
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    padding-left: 10px;
+}
+.promotion2{
+    font-size: 20px;
+    background-color: rgba(164, 161, 161, 0.467);
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    padding-left: 10px;
+}
+.promotion3{
     font-size: 20px;
     background-color: rgba(164, 161, 161, 0.467);
     height: 50px;
@@ -153,7 +180,6 @@ body{
         display: flex;
         grid-template-columns:1fr 1fr;
         width: 90%;
-
     }
     .top{
         width: 100%;
@@ -164,6 +190,16 @@ body{
     
 
     .small{
+        width: 45%;
+        flex: auto;
+        
+    }
+    .small2{
+        width: 45%;
+        flex: auto;
+        
+    }
+    .small3{
         width: 45%;
         flex: auto;
         
@@ -226,8 +262,9 @@ body{
     .mobile{
         display: block;
         margin-left: auto;
-        right:0;
-        max-width:590px
+        padding: 0 10px;
+        max-width:600px;
+        margin-top: 5px;
 
     }
 
@@ -248,13 +285,9 @@ body{
         display: none;
        
        
-    }
-    .item2 div {
-        font-size: 50px;
-        margin: 10px; 
-        margin-top: 40px;
        
     }
+    
     .item-text{
         display: flex;
         justify-content: center;
@@ -263,19 +296,36 @@ body{
         display: flex;
         justify-content: flex-end;
         
+        
     }
     .smallbox{
         flex-wrap: wrap;
-        min-width: 90% ;
+        width: 90%;
+        min-width:360px;
+        max-width: 600px;
+     
     }
     .small{
+        width:90%;
+     
+    }
+    .small2{
         width: 90%;
+       
+    }
+    .small3{
+        width:90%;
+        flex: auto;
+    
     }
     
     .grid{
-        min-width: 90%;
+        
         flex-wrap: wrap;
         display: flex;
+        width: 90%;
+        min-width:360px;
+        max-width: 600px;
 
     }
     .contaniner{
@@ -283,7 +333,16 @@ body{
         width:100%;  
       
     }
-   
+    .welcome{
+        width: 100%;
+        min-width:360px;
+        max-width: 600px;
+    }
+   .top{
+        width:100%;
+        min-width:360px;
+        max-width: 600px;
+   }
         
         
     
