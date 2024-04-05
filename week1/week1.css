@@ -64,16 +64,7 @@ body{
     align-items: center;
     margin: 10px; 
 }
-.small2{
-    display: flex;
-    align-items: center;
-    margin: 10px; 
-}
-.small3{
-    display: flex;
-    align-items: center;
-    margin: 10px; 
-}
+
 
 .promotion{
     font-size: 20px;
@@ -194,16 +185,7 @@ body{
         flex: auto;
         
     }
-    .small2{
-        width: 45%;
-        flex: auto;
-        
-    }
-    .small3{
-        width: 45%;
-        flex: auto;
-        
-    }
+    
     .promotion{
         width: 100%;
         font-size: 20px;
@@ -305,19 +287,7 @@ body{
         max-width: 600px;
      
     }
-    .small{
-        width:90%;
-     
-    }
-    .small2{
-        width: 90%;
-       
-    }
-    .small3{
-        width:90%;
-        flex: auto;
-    
-    }
+   
     
     .grid{
         
