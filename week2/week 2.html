@@ -1,0 +1,161 @@
+<script>
+console.log("-----Task 1-----");
+function findAndPrint(messages, currentStation){
+
+const stations = ["Songshan", "Nanjing Sanmin", "Taipei Arena", "Nanjing Fuxing", "Songjiang Nanjing",
+"Zhongshan", "Beimen", "Ximen", "Xiaonanmen", "Chiang Kai-Shek Memorial Hall",
+"Guting", "Taipower Building", "Gongguan", "Wanlong", "Jingmei", "Dapinglin",
+"Qizhang", "Xiaobitan", "Xindian City Hall", "Xindian"];
+
+   
+const distances = [];
+for (const [message, station] of Object.entries(messages)){
+    
+    if (station == "Xiaobitan" & currentStation == "Qizhang"){
+        distance = 0.5;
+    } else if (station == "Xiaobitan" & currentStation == "Xindian City Hall"){
+        distance = 1.5;
+    } else if (station == "Xiaobitan" & currentStation == "Dapinglin"){
+        distance = 1.5;
+    } else{
+        distance = Math.abs(stations.indexOf(currentStation) - stations.indexOf(station));
+    }
+    distances.push(distance)
+}
+    
+const minDistance = Math.min(...distances);
+const minDistanceIndex = distances.indexOf(minDistance);
+const closestFriend = Object.keys(messages)[minDistanceIndex];
+
+console.log(closestFriend);
+}
+const messages={
+"Leslie": "Xiaobitan",
+"Bob": "Ximen",
+"Mary": "Jingmei",
+"Copper": "Taipei Arena",
+"Vivian": "Xindian"
+}
+findAndPrint(messages, "Wanlong"); // print Mary
+findAndPrint(messages, "Songshan"); // print Copper
+findAndPrint(messages, "Qizhang"); // print Leslie
+findAndPrint(messages, "Ximen"); // print Bob
+findAndPrint(messages, "Xindian City Hall"); // print Vivian
+
+console.log("-----Task 2-----");
+let consultants = [
+ { name: "John", rate: 4.5, price: 1000, booking: [] },
+ { name: "Bob", rate: 3, price: 1200, booking: [] },
+ { name: "Jenny", rate: 3.8, price: 800, booking: [] }
+];
+
+function book(consultants, hour, duration, criteria) {
+    let availableConsultants = [];
+
+    for (let consultant of consultants) {
+        let isAvailable = true;
+        
+        for (let [bookedHour, bookedDuration] of consultant.booking) {
+            for (let time = 0; time < duration; time++) {
+                if (bookedHour <= hour + time && hour + time < bookedHour + bookedDuration) {
+                    isAvailable = false;
+                    break;
+                }
+            }
+            if (!isAvailable) break;
+        }
+        
+        if (isAvailable) {
+            availableConsultants.push(consultant);
+        }
+    }
+
+    if (availableConsultants.length === 0) {
+        console.log("No service");
+        return;
+    }
+
+    if (criteria === "price") {
+        let bestConsultant = availableConsultants.reduce((a, b) => a.price < b.price ? a : b);
+        bestConsultant.booking.push([hour, duration]);
+        console.log(bestConsultant.name);
+    } else if (criteria === "rate") {
+        let bestConsultant = availableConsultants.reduce((a, b) => a.rate > b.rate ? a : b);
+        bestConsultant.booking.push([hour, duration]);
+        console.log(bestConsultant.name);
+    }
+}
+
+book(consultants, 15, 1, "price"); // Jenny
+book(consultants, 11, 2, "price"); // Jenny
+book(consultants, 10, 2, "price"); // John
+book(consultants, 20, 2, "rate"); // John
+book(consultants, 11, 1, "rate"); // Bob
+book(consultants, 11, 2, "rate"); // No Service
+book(consultants, 14, 3, "price"); // John
+
+console.log("-----Task 3-----");
+function func(...datas){
+    let names=[]
+    for(let data of datas){
+     if (data.length <= 3){
+        name= data[1]
+    }else{
+        name = data[2]
+    }
+    names.push(name)
+    }
+    
+    
+    
+    let uniqueNames = names.filter((name) => names.indexOf(name) == names.lastIndexOf(name));
+    
+    let found = false
+    
+    for(let data of datas){
+        if(data.length<=3 & data[1]==uniqueNames){
+            console.log(data)
+            found = true;
+            
+            
+        }else if(data.length>3 & data[2] ==uniqueNames){
+            console.log(data)
+            found = true;
+            
+            
+        }
+    }
+    if (!found) {
+        console.log("沒有");
+    }   
+   
+}
+    
+
+func("彭大牆", "陳王明雅", "吳明"); // print 彭大牆
+func("郭靜雅", "王立強", "郭林靜宜", "郭立恆", "林花花"); // print 林花花
+func("郭宣雅", "林靜宜", "郭宣恆", "林靜花"); // print 沒有
+func("郭宣雅", "夏曼藍波安", "郭宣恆"); // print 夏曼藍波安
+
+console.log("-----Task 4-----");
+function getNumber(index){
+        if(index==0){
+            return 0
+        }else if(index%3 == 0){
+            return getNumber(index-1)-1
+        }else{
+            return getNumber(index-1)+4
+        }
+
+}
+
+
+
+
+
+
+console.log(getNumber(1)); // print 4
+console.log(getNumber(5)); // print 15
+console.log(getNumber(10)); // print 25
+console.log(getNumber(30)); // print 70
+</script>
