@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week 3-task 2</title>
+    <link rel="stylesheet" type="text/css" href="task 3.css"/>
+</head>
+<body>
+    <div class="top" >
+        <div style="font-size: 20px;">my website</div>
+
+        
+        <div class="item" id="menu">
+            <div class="close-icon" onclick="closeMenu();">x</div>
+            <div class="item-text">item 1</div>
+            <div class="item-text">item 2</div>
+            <div class="item-text">item 3</div>
+            <div class="item-text">item 4</div>
+           
+        </div>
+       
+        <div class="mobile"  onclick="change();">
+            <img src="menu.png"/>
+        </div>
+    </div >
+    <script>
+        function change(){
+            let openelem = document.querySelector("#menu");
+            
+            menu.style.display='block'
+        }
+        function closeMenu(){
+            let closeelem = document.querySelector("#menu");
+            menu.style.display = 'none'
+
+        }
+        
+
+    </script>
+
+    
+    <div class="welcome" >Welcome to MyHome</div>
+
+    <div class="smallbox">
+        <div class="small">
+            <img  class="smallpicture" />
+            <div class="promotion"   ></div>
+        </div>
+        <div class="small">
+            <img  class="smallpicture"/>
+            <div class="promotion"  ></div>
+        </div>
+        <div class="small">
+            <img  class="smallpicture" />
+            <div class="promotion"   ></div>
+        </div>
+    </div>
+
+  
+    <!--big boxes 第一行-->
+    <div class="grid">
+      
+
+        <div class="contaniner">
+          <img  class="bigpicture2" ></img>
+          <span class="icon">⭐</span>
+          <div class="text" ></div>
+        </div>
+        
+        <div class="contaniner">
+           <img  class="bigpicture2"></img>
+           <span class="icon">⭐</span>
+           <div class="text"  ></div>
+        </div>
+        
+        <div class="contaniner">
+            <img  class="bigpicture2"></img>
+            <span class="icon">⭐</span>
+            <div class="text"   ></div>
+        </div>
+
+        <div class="contaniner">
+            <img  class="bigpicture2"></img>
+            <span class="icon">⭐</span>
+            <div class="text"   ></div>
+            
+
+        </div>
+        
+        <div class="contaniner">
+            <img  class="bigpicture2"></img>
+            <span class="icon">⭐</span>
+            <div class="text"  ></div>
+        </div>
+          
+
+    
+    <!--第二行-->
+      
+      
+        <div class="contaniner">
+          <img  class="bigpicture2"></img>
+          <span class="icon">⭐</span>
+          <div class="text"   ></div>
+        </div>
+        
+        <div class="contaniner">
+           <img  class="bigpicture2"></img>
+           <span class="icon">⭐</span>
+           <div class="text"   ></div>
+        </div>
+        
+        <div class="contaniner">
+            <img  class="bigpicture2"></img>
+            <span class="icon">⭐</span>
+            <div class="text"  ></div>
+        </div>
+
+        <div class="contaniner4">
+            <img  class="bigpicture3"></img>
+            <span class="icon">⭐</span>
+            <div class="text2"  ></div>
+            
+
+        </div>
+        
+        <div class="contaniner5">
+            <img  class="bigpicture4"></img>
+            <span class="icon">⭐</span>
+            <div class="text2"   ></div>
+        </div>
+      
+    </div>
+    
+
+<script>
+    url="https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment-1"
+    fetch(url).then(function(response){
+        return response.json();
+    }).then(function(data){
+        let result = data.data.results;
+        let textItems = document.querySelectorAll('.promotion,.text,.text2');
+        for (let i = 0;  i < textItems.length; i++) {
+            let str = document.createElement("span");
+            str.textContent = result[i].stitle;
+            
+            textItems[i].appendChild(str);
+        }
+        let Picture = document.querySelectorAll('.smallpicture,.bigpicture2,.bigpicture3,.bigpicture4');
+        for (let n = 0;  n < Picture.length; n++) {
+            let FirstPicture = result[n].filelist.split("https://")[1];
+            let Picture2 = 'https://'+ FirstPicture;
+            Picture[n].src = Picture2;
+            console.log(Picture2)
+
+        }
+
+        
+
+        
+        
+        
+   
+    })
+   
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
