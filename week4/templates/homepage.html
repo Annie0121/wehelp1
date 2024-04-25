@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week 4 </title>
+    <div style="padding: 20px;background-color: rgb(12, 33, 59);color : white;font-size: 25px;text-align: center">歡迎光臨，請輸入帳號密碼</div>
+    <script>
+        
+        function submitForm(){
+            let checkbox = document.getElementById("agree")
+
+            if(checkbox.checked){
+                let form = document.getElementById("signInForm");
+                form.submit();
+            }else{
+                alert("Please check the checkbox first");
+                return false;
+            }
+            /*action="/signin" method="post"*/
+        }
+    </script>
+    
+</head>
+<body>
+    <div style="text-align: center;padding-top: 40px;font-size: 20px;">
+        <form id="signInForm"action="/signin" method="post" >
+            <div>登入系統</div>
+            <span>帳號：</span><input type="text" name="username"><br>
+            <span>密碼：</span><input type="password" name="password"><br>
+            <label>同意條款</label>
+            <input type="checkbox" id="agree"><br>
+            <button style="margin-top: 10px;" onclick="submitForm();" type="button">登入</button>
+        </form>
+    </div>
+    
+    
+</body>
+</html>
