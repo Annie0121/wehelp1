@@ -1,82 +1,85 @@
-create database website;
-use website;
-create table member(
- `id`  bigint primary key AUTO_INCREMENT  comment'Unique ID',
- `name`  varchar(255) not null comment'Name',
- `username` varchar(255) not null  comment'Username',
-  `password` varchar(255) not null comment'Password',
-  `follower_count` int unsigned not null default 0 comment'Follower Count',
-  `time` datetime not null default now() comment'Signup Time'
+-- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
+--
+-- Host: localhost    Database: website
+-- ------------------------------------------------------
+-- Server version	8.0.36
 
-);
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-desc member;
+--
+-- Table structure for table `member`
+--
 
--- task3 r1
-insert into member(name,username,password) values 
-('test','test','test'),
-('test-2','qwe','123'),
-('test-3','qwe','456'),
-('test-4','qwe','789'),
-('test-5','asd','123') ;
+DROP TABLE IF EXISTS `member`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `member` (
+  `id` bigint NOT NULL AUTO_INCREMENT COMMENT 'Unique ID',
+  `name` varchar(255) NOT NULL COMMENT 'Name',
+  `username` varchar(255) NOT NULL COMMENT 'Username',
+  `password` varchar(255) NOT NULL COMMENT 'Password',
+  `follower_count` int unsigned NOT NULL DEFAULT '0' COMMENT 'Follower Count',
+  `time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Signup Time',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Dumping data for table `member`
+--
 
--- task3 r2
-SELECT * FROM member;
+LOCK TABLES `member` WRITE;
+/*!40000 ALTER TABLE `member` DISABLE KEYS */;
+INSERT INTO `member` VALUES (1,'test2','test','test',0,'2024-04-30 16:08:07'),(2,'test-2','qwe','123',0,'2024-04-30 16:08:07'),(3,'test-3','qwe','456',0,'2024-04-30 16:08:07'),(4,'test-4','qwe','789',0,'2024-04-30 16:08:07'),(5,'test-5','asd','123',0,'2024-04-30 16:08:07');
+/*!40000 ALTER TABLE `member` ENABLE KEYS */;
+UNLOCK TABLES;
 
--- task3 r3
-SELECT * FROM member order by time;
+--
+-- Table structure for table `message`
+--
 
--- task3 r4
-SELECT * FROM member order by time limit 1,3;
+DROP TABLE IF EXISTS `message`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `message` (
+  `id` bigint NOT NULL AUTO_INCREMENT COMMENT 'Unique ID',
+  `member_id` bigint NOT NULL COMMENT 'Member ID for Message Sender',
+  `content` varchar(255) NOT NULL COMMENT 'ContentD',
+  `like_count` int unsigned NOT NULL DEFAULT '0' COMMENT 'Like Count',
+  `time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Publish Time',
+  PRIMARY KEY (`id`),
+  KEY `member_id` (`member_id`),
+  CONSTRAINT `message_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `member` (`id`),
+  CONSTRAINT `message_ibfk_2` FOREIGN KEY (`member_id`) REFERENCES `member` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- task3 r5
-SELECT * FROM member where username='test';
+--
+-- Dumping data for table `message`
+--
 
--- task3 r6
-SELECT * FROM member where name like '%es%';
+LOCK TABLES `message` WRITE;
+/*!40000 ALTER TABLE `message` DISABLE KEYS */;
+INSERT INTO `message` VALUES (1,1,'hello',1,'2024-04-30 16:10:26'),(2,2,'hello2',2,'2024-04-30 16:10:26'),(3,3,'hello3',3,'2024-04-30 16:10:26'),(4,4,'hello4',4,'2024-04-30 16:10:26'),(5,5,'hello5',5,'2024-04-30 16:10:26');
+/*!40000 ALTER TABLE `message` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
--- task3 r7
-SELECT * FROM member where username='test' and password='test';
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- task3 r8
-UPDATE member SET name = 'test2' WHERE username='test';
-SELECT * FROM member;
-
--- task4 r1
-SELECT COUNT(*) FROM member;
-
--- task4 r2
-SELECT SUM(follower_count) FROM member;
--- task4 r3
-SELECT AVG(follower_count) FROM member;
-
--- task4 r4
-
-SELECT AVG(follower_count) FROM  (SELECT follower_count FROM member  order by follower_count desc limit 2) AS follower_count_AVG;
-
-
--- task 5 r1
-create table message(
-	id bigint primary key auto_increment  comment'Unique ID',
-    member_id bigint not null comment'Member ID for Message Sender',
-    content varchar(255) not null comment'ContentD',
-    like_count int unsigned not null default  0 comment'Like Count',
-    time datetime not null default  now() comment'Publish Time'
-);
-alter table message add foreign key(member_id) references `member`(id);
-desc message;
-
--- task 5 r2
-insert into message(member_id,content,like_count) values(1,'hello',1),(2,'hello2',2),(3,'hello3',3),(4,'hello4',4),(5,'hello5',5) ;
-select * from message,member where member.id = message.member_id ;
-
--- task5 task 3
-
-select message.* ,member.* from message left outer join member on member.id = message.member_id where username='test';
-
--- task 5 r4
-select avg(like_count) from message  join member on member.id = message.member_id where username='test';
-
--- task5 r5
-select username,avg(like_count) from message join member on member.id = message.member_id group by username;
+-- Dump completed on 2024-04-30 16:13:11
