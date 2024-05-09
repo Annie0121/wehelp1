@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week 4 </title>
+    <div style="padding: 20px;background-color: rgb(12, 33, 59);color : white;font-size: 25px;text-align: center">{{title}}</div>
+    <script>
+        function goback(){
+            window.location.href = "/signout";
+        }
+
+        function createMessage(){
+            let form = document.getElementById("messageSystem")
+            form.submit();
+        }
+    </script>
+</head>
+<body>
+    <div style="text-align: center;padding-top: 40px ;" >
+        <div style="font-size: 20px;" >{{message}}</div>
+        <div type="button" onclick="goback();" style=" text-decoration: underline;margin-top: 20px;" >登出系統</div>
+        
+    </div>
+
+    <hr style="margin-top: 55px;">
+
+    <div style="text-align: center;padding-top: 40px;font-size: 20px;">
+        <form id="messageSystem" action="/createMessage" method="post" >
+            <div style="font-weight: bold;">快來留言吧</div>
+            <div style="margin-top: 10px;">
+                <span  >內容  </span><input type="text" name="message"><br>
+            </div>
+            <button style="margin-top: 10px;" onclick="createMessage();" type="button">送出</button>
+        </form>
+    </div>
+    <hr style="margin-top: 55px;">
+
+    <div style="text-align: center;padding-top: 40px ;" >
+        {% for content, name in contents_and_names %}
+             <p style="font-size: 18px;"><span style="font-weight: bold;">{{ name }}</span>: {{ content }}</p>
+        {% endfor %}
+        
+    </div>
+
+    
+</body>
+</html>
