@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week 6 </title>
+    <div style="padding: 20px;background-color: rgb(12, 33, 59);color : white;font-size: 25px;text-align: center">歡迎光臨，請註冊登入系統</div>
+    <script>
+        
+        function submitForm(){
+            let form = document.getElementById("signInForm")
+            form.submit();
+        }
+
+        function signUp(){
+            let form = document.getElementById("singUpForm")
+            let nameInput = document.getElementById("name");
+            let usernameInput = document.getElementById("username");
+            let passwordInput = document.getElementById("password");
+            if(!nameInput.value||!usernameInput.value||!passwordInput.value){
+                alert("請輸入資料");
+            }else{
+                form.submit();
+            }
+
+            
+            
+           
+        }
+
+
+        
+    </script>
+    
+</head>
+<body>
+    <div style="text-align: center;padding-top: 40px;font-size: 20px;">
+        <form id = 'singUpForm' action="/signup" method="post" >
+            <div>註冊帳號</div>
+            <span>姓名：</span><input type="text" name="name" id="name"><br>
+            <span>帳號：</span><input type="text" name="username" id="username"><br>
+            <span>密碼：</span><input type="password" name="password" id="password"><br>
+            <button style="margin-top: 10px;" onclick="signUp();" type="button">註冊</button>
+        </form>
+    </div>
+
+    <hr style="margin-top: 55px;">
+
+    <div style="text-align: center;padding-top: 40px;font-size: 20px;">
+        <form id="signInForm"action="/signin" method="post" >
+            <div>登入系統</div>
+            <span>帳號：</span><input type="text" name="username"><br>
+            <span>密碼：</span><input type="password" name="password"><br>
+            <button style="margin-top: 10px;" onclick="submitForm();" type="button">登入</button>
+        </form>
+    </div>
+    
+    
+</body>
+</html>
